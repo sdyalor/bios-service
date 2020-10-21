@@ -1,0 +1,167 @@
+{
+	"info": {
+		"_postman_id": "3a72b467-db54-43d8-af73-9bf214bbff54",
+		"name": "BIOS SERVICE API",
+		"description": "MONGO BIOS EXAMPLE COLLECTION CRUD schema",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n       \"name\" : {\r\n           \"first\" : \"Johasdfn\",\r\n           \"last\" : \"Backus\"\r\n       },\r\n       \"birth\" : \"1924-12-03T05:00:00Z\",\r\n       \"death\" : \"2007-03-17T04:00:00Z\",\r\n       \"contribs\" : [\r\n           \"Fortran\",\r\n           \"ALGOL\",\r\n           \"Backus-Naur Form\",\r\n           \"FP\"\r\n       ],\r\n       \"awards\" : [\r\n           {\r\n               \"award\" : \"W.W. McDowell Award\",\r\n               \"year\" : 1967,\r\n               \"by\" : \"IEEE Computer Society\"\r\n           },\r\n           {\r\n               \"award\" : \"National Medal of Science\",\r\n               \"year\" : 1975,\r\n               \"by\" : \"National Science Foundation\"\r\n           },\r\n           {\r\n               \"award\" : \"Turing Award\",\r\n               \"year\" : 1977,\r\n               \"by\" : \"ACM\"\r\n           },\r\n           {\r\n               \"award\" : \"Draper Prize\",\r\n               \"year\" : 1993,\r\n               \"by\" : \"National Academy of Engineering\"\r\n           }\r\n       ]\r\n   }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "192.168.126.135:3000/bios-service",
+					"host": [
+						"192",
+						"168",
+						"126",
+						"135"
+					],
+					"port": "3000",
+					"path": [
+						"bios-service"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n       \"name\" : {\r\n           \"first\" : \"asdfasdfasdf\",\r\n           \"last\" : \"asdfasdfasdf\"\r\n       },\r\n       \"birth\" : \"1924-12-03T05:00:00Z\",\r\n       \"death\" : \"2007-03-17T04:00:00Z\",\r\n       \"contribs\" : [\r\n           \"Backus-Naur Form\"\r\n       ]\r\n   }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "192.168.126.135:3000/bios-service/5f906229d351439d701c458f",
+					"host": [
+						"192",
+						"168",
+						"126",
+						"135"
+					],
+					"port": "3000",
+					"path": [
+						"bios-service",
+						"5f906229d351439d701c458f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "192.168.126.135:3000/bios-service/5f906228d351439d701c458a",
+					"host": [
+						"192",
+						"168",
+						"126",
+						"135"
+					],
+					"port": "3000",
+					"path": [
+						"bios-service",
+						"5f906228d351439d701c458a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createAward",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n       \"_id\" : 1,\r\n       \"name\" : {\r\n           \"first\" : \"John\",\r\n           \"last\" : \"Backus\"\r\n       },\r\n       \"birth\" : \"1924-12-03T05:00:00Z\",\r\n       \"death\" : \"2007-03-17T04:00:00Z\",\r\n       \"contribs\" : [\r\n           \"Fortran\",\r\n           \"ALGOL\",\r\n           \"Backus-Naur Form\",\r\n           \"FP\"\r\n       ],\r\n       \"awards\" : [\r\n           {\r\n               \"award\" : \"W.W. McDowell Award\",\r\n               \"year\" : 1967,\r\n               \"by\" : \"IEEE Computer Society\"\r\n           },\r\n           {\r\n               \"award\" : \"National Medal of Science\",\r\n               \"year\" : 1975,\r\n               \"by\" : \"National Science Foundation\"\r\n           },\r\n           {\r\n               \"award\" : \"Turing Award\",\r\n               \"year\" : 1977,\r\n               \"by\" : \"ACM\"\r\n           },\r\n           {\r\n               \"award\" : \"Draper Prize\",\r\n               \"year\" : 1993,\r\n               \"by\" : \"National Academy of Engineering\"\r\n           }\r\n       ]\r\n   }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "192.168.126.135:3000/bios-service/5f906228d351439d701c458a",
+					"host": [
+						"192",
+						"168",
+						"126",
+						"135"
+					],
+					"port": "3000",
+					"path": [
+						"bios-service",
+						"5f906228d351439d701c458a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n       \"_id\" : 1,\r\n       \"name\" : {\r\n           \"first\" : \"John\",\r\n           \"last\" : \"Backus\"\r\n       },\r\n       \"birth\" : \"1924-12-03T05:00:00Z\",\r\n       \"death\" : \"2007-03-17T04:00:00Z\",\r\n       \"contribs\" : [\r\n           \"Fortran\",\r\n           \"ALGOL\",\r\n           \"Backus-Naur Form\",\r\n           \"FP\"\r\n       ],\r\n       \"awards\" : [\r\n           {\r\n               \"award\" : \"W.W. McDowell Award\",\r\n               \"year\" : 1967,\r\n               \"by\" : \"IEEE Computer Society\"\r\n           },\r\n           {\r\n               \"award\" : \"National Medal of Science\",\r\n               \"year\" : 1975,\r\n               \"by\" : \"National Science Foundation\"\r\n           },\r\n           {\r\n               \"award\" : \"Turing Award\",\r\n               \"year\" : 1977,\r\n               \"by\" : \"ACM\"\r\n           },\r\n           {\r\n               \"award\" : \"Draper Prize\",\r\n               \"year\" : 1993,\r\n               \"by\" : \"National Academy of Engineering\"\r\n           }\r\n       ]\r\n   }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "192.168.126.134:3000/bios-service",
+					"host": [
+						"192",
+						"168",
+						"126",
+						"134"
+					],
+					"port": "3000",
+					"path": [
+						"bios-service"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
