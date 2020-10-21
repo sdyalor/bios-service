@@ -1,5 +1,6 @@
 import { Type } from 'class-transformer/decorators';
-import { IsArray, IsDateString, IsMongoId, IsNumber, IsObject, IsString, MinLength, ValidateNested } from 'class-validator';
+import { IsArray, IsDateString, IsMongoId, IsNumber, IsObject, IsOptional, IsString, MinLength, ValidateNested } from 'class-validator';
+import { BiosAwardDTO } from './bios-award.dto';
 
 export class NameDTO {
   @IsString()
@@ -9,9 +10,10 @@ export class NameDTO {
 }
 
 export class BiosServiceDTO {
-  // @IsMongoId()
-  @IsNumber()
-  _id?: number;
+  @IsOptional()
+  @IsMongoId()
+  // @IsNumber()
+  _id?: string;
   @IsObject() @ValidateNested() @Type(() => NameDTO)
   name: NameDTO;
   @IsDateString()
@@ -20,15 +22,8 @@ export class BiosServiceDTO {
   death: Date;
   @MinLength(2,{ each: true })
   contribs: string[];
+  @IsOptional()
   @IsArray()
-  @ValidateNested() @Type(()=> BioAwardsDTO)
-  awards: BioAwardsDTO[]
-}
-class BioAwardsDTO {
-  @IsString()
-  readonly award: string;
-  @IsNumber()
-  readonly year: number;
-  @IsString()
-  readonly by: string;
+  @ValidateNested() @Type(()=> BiosAwardDTO)
+  awards: BiosAwardDTO[]
 }
