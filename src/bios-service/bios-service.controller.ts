@@ -6,13 +6,14 @@ import { ValidationErrorFilter } from './filters/mongo-exception.filter';
 import { Types } from 'mongoose';
 import { DTOValidationPipe } from './dto-validation.pipe';
 import { BiosAwardDTO } from './dto/bios-award.dto';
+import { MailingService } from './services/mailing/mailing.service';
 
 
 
 @Controller('bios-service')
 export class BiosServiceController {
 
-  constructor(private biosServiceService:BiosServiceService){}
+  constructor(private biosServiceService:BiosServiceService,private mailingService:MailingService){}
   @Post()
   @UsePipes(new DTOValidationPipe())
   @UseFilters(ValidationErrorFilter)
@@ -86,8 +87,16 @@ export class BiosServiceController {
   @Post(':id/award')
   async createAward(@Res() res:Response,@Param('id') bioId:string,@Body() biosAwardDTO:BiosAwardDTO ) {
     const  latestawards = await this.biosServiceService.createAward(bioId,biosAwardDTO);
+    const awardName = biosAwardDTO.award;
+    const awardBy = biosAwardDTO.by;
+    try{
+     this.mailingService.send(awardBy,awardName);
+
+    } catch (err) {
+      console.log(err,"MAIL ERRORS")
+    }
     return res.status(HttpStatus.OK).json({
-      award:'award received',
+      award:'award received, the company is going to receive a mail for you',
       id: bioId,
       awardsCount: latestawards.length,
       latestawards

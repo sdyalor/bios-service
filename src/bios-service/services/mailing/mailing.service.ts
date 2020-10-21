@@ -3,15 +3,15 @@ import { MailerService } from '@nestjs-modules/mailer';
 @Injectable()
 export class MailingService {
   constructor(private readonly mailerService: MailerService) {}
-  public example(): Promise<any> {
+  public send(awardBy:string,awardName:string): Promise<any> {
     return this
       .mailerService
       .sendMail({
-        to: 'test@nestjs.com', // list of receivers
-        from: 'noreply@nestjs.com', // sender address
-        subject: 'Testing Nest MailerModule ✔', // Subject line
-        text: 'welcome', // plaintext body
-        html: '<b>welcome</b>', // HTML body content
-      })
+        to: 'mckayla.kuphal@ethereal.email', // list of receivers
+        from: 'mckayla.kuphal@ethereal.email', // sender address
+        subject: `Ha Ganado el premio ${awardBy}  entregado por ${awardName}  ✔`, // Subject line
+        text: 'Estimado ha ganado un premio, felicidades 😎🤙', // plaintext body
+        html: '<b>Estimado ha ganado un premio, felicidades 😎🤙</b>', // HTML body content
+      });
   }
 }
